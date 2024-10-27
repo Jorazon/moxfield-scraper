@@ -1,4 +1,2 @@
 robotframework
-robotframework-requests
-robotframework-jsonlibrary
 rpaframework
