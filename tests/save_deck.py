@@ -33,12 +33,22 @@ def fetch_and_parse_json(url, path):
 	deck.setAttribute("version", "1")
 	document.appendChild(deck)
 
+	# Creeate deck name
 	deckname = document.createElement("deckname")
 	deckname.appendChild(document.createTextNode(json_data["name"]))
 	deck.appendChild(deckname)
 
+	# Create description
 	comments = document.createElement("comments")
-	comments.appendChild(document.createTextNode(json_data["description"]))
+	description = json_data["description"]
+	commanders = json_data["boards"]["commanders"]["cards"].items()
+	if len(commanders) > 0 :
+		description += '\n\nCommander:\n'
+	elif len(commanders) > 1 :
+		description += '\n\nCommanders:\n'
+	for card_id, card_info in commanders :
+		description += f'{card_info["card"]["name"]}\n'
+	comments.appendChild(document.createTextNode(description))
 	deck.appendChild(comments)
 
 	# Create main zone
