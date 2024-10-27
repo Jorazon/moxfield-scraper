@@ -52,7 +52,7 @@ def fetch_and_parse_json(url, path):
 		description += f'{card_info["card"]["name"]}\n'
 	if len(description) > 0 :
 		description += "\n"
-	description += 'Author: {json_data["createdByUser"]["userName"]}\nLink: moxfield.com/decks/{json_data["publicId"]}'
+	description += f'Author: {json_data["createdByUser"]["userName"]}\nLink: moxfield.com/decks/{json_data["publicId"]}'
 	comments.appendChild(document.createTextNode(description))
 	deck.appendChild(comments)
 
