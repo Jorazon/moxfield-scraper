@@ -42,10 +42,12 @@ def fetch_and_parse_json(url, path):
 	comments = document.createElement("comments")
 	description = json_data["description"]
 	commanders = json_data["boards"]["commanders"]["cards"].items()
+	if len(description) > 0 :
+		description += '\n\n'
 	if len(commanders) == 1 :
-		description += '\n\nCommander:\n'
+		description += 'Commander:\n'
 	elif len(commanders) > 1 :
-		description += '\n\nCommanders:\n'
+		description += 'Commanders:\n'
 	for card_id, card_info in commanders :
 		description += f'{card_info["card"]["name"]}\n'
 	comments.appendChild(document.createTextNode(description))
