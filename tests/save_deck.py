@@ -42,7 +42,7 @@ def fetch_and_parse_json(url, path):
 	comments = document.createElement("comments")
 	description = json_data["description"]
 	commanders = json_data["boards"]["commanders"]["cards"].items()
-	if len(commanders) > 0 :
+	if len(commanders) == 1 :
 		description += '\n\nCommander:\n'
 	elif len(commanders) > 1 :
 		description += '\n\nCommanders:\n'
