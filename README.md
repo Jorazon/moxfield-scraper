@@ -15,5 +15,6 @@ pip install -r requirements.txt
 ## Usage
 
 ```sh
+./.venv/scripts/activate
 robot -d results .\tests\moxfield-scraper.robot
 ```
